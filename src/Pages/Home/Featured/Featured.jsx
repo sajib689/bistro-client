@@ -1,5 +1,5 @@
 import SectionTitle from "./../../../Components/SectionTitle/SectionTitle";
-import featuredImg from '../../../assets/home/featured.jpg'
+import featuredImg from "../../../assets/home/featured.jpg";
 const Featured = () => {
   return (
     <div>
@@ -7,8 +7,21 @@ const Featured = () => {
         heading={"FROM OUR MENU"}
         subHeading={"---Check it out---"}
       ></SectionTitle>
-      <div>
-        
+      <div className="md:flex items-center">
+        <div>
+          <img src={featuredImg} alt="" />
+        </div>
+        <div>
+          <p>March 20, 2023</p>
+          <p className="uppercase">WHERE CAN I GET SOME?</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
+            voluptate facere, deserunt dolores maiores quod nobis quas quasi.
+            Eaque repellat recusandae ad laudantium tempore consequatur
+            consequuntur omnis ullam maxime tenetur.
+          </p>
+          <button className="btn btn-outline">Order Now</button>
+        </div>
       </div>
     </div>
   );
