@@ -7,11 +7,11 @@ const Featured = () => {
         heading={"FROM OUR MENU"}
         subHeading={"---Check it out---"}
       ></SectionTitle>
-      <div className="md:flex items-center">
+      <div className="md:flex items-center justify-center py-8 px-16">
         <div>
           <img src={featuredImg} alt="" />
         </div>
-        <div>
+        <div className="md:ml-10">
           <p>March 20, 2023</p>
           <p className="uppercase">WHERE CAN I GET SOME?</p>
           <p>
