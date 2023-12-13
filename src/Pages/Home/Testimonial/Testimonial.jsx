@@ -7,10 +7,10 @@ import { Navigation } from "swiper/modules";
 import { useEffect, useState } from "react";
 import { Rating } from "@smastrom/react-rating";
 import '@smastrom/react-rating/style.css'
+import { BiSolidQuoteAltLeft } from "react-icons/bi";
+
 const Testimonial = () => {
   const [reviews, setReviews] = useState([]);
-
-  console.log(reviews);
   useEffect(() => {
     fetch("reviews.json")
       .then((res) => res.json())
@@ -27,6 +27,7 @@ const Testimonial = () => {
           {reviews.map((review) => (
             <SwiperSlide key={review._id}>
               <div className="text-center flex flex-col items-center mx-24 my-16">
+              <BiSolidQuoteAltLeft className="text-[100px] mb-4"/>
                 <Rating
                   style={{ maxWidth: 180 }}
                   value={review.rating}
