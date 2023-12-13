@@ -7,6 +7,7 @@ import { Navigation } from 'swiper/modules';
 import { useEffect, useState } from "react";
 const Testimonial = () => {
     const [reviews, setReviews] = useState([])
+    console.log(reviews);
     useEffect( () => {
         fetch('reviews.json')
         .then(res => res.json())
@@ -21,9 +22,15 @@ const Testimonial = () => {
         </SectionTitle>
         <>
         <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-        <SwiperSlide>Slide 1</SwiperSlide>
+       
         {
-            reviews.map(review => console.log(review))
+            reviews.map(review =>  <SwiperSlide
+             key={review._id}>
+                <div className="text-center m-24">
+                    <p>{review.details}</p>
+                    <h3 className="text-2xl text-orange-400">{review.name}</h3>
+                </div>
+            </SwiperSlide>)
         }
       </Swiper>
         </>
