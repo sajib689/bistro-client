@@ -1,13 +1,14 @@
 import SectionTitle from "./../../../Components/SectionTitle/SectionTitle";
 import featuredImg from "../../../assets/home/featured.jpg";
+import './Featured.css'
 const Featured = () => {
   return (
-    <div>
+    <div className="featured-item text-white pt-8 my-20">
       <SectionTitle
         heading={"FROM OUR MENU"}
         subHeading={"---Check it out---"}
       ></SectionTitle>
-      <div className="md:flex items-center justify-center py-8 px-16">
+      <div className="md:flex items-center justify-center pb-20 pt-12 px-36">
         <div>
           <img src={featuredImg} alt="" />
         </div>
