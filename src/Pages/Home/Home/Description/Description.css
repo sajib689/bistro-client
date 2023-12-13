@@ -1,3 +1,7 @@
 .description-bg{
     background-image: url('../../../../assets/home/chef-service.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    height: 50vh;
+    border-radius: 20px 0px 20px 0px;
 }

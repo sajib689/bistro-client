@@ -3,7 +3,7 @@ const Description = () => {
   return (
     <section className="description-bg">
       <div className="hero min-h-screen">
-        <div className="hero-content text-center bg-white px-80 py-12">
+        <div className="hero-content text-center rounded-lg mb-32 bg-white px-80 py-12">
           <div className="max-w-md">
             <h1 className="text-5xl uppercase">Bistro Boss</h1>
             <p className="py-6">
