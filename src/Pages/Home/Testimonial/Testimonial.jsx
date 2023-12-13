@@ -1,9 +1,15 @@
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
 const Testimonial = () => {
     return (
-        <div>
-            
-        </div>
+        <section>
+            <SectionTitle 
+            subHeading={'---What Our Clients Say---'}
+            heading={'TESTIMONIALS'}
+            >
+
+            </SectionTitle>
+        </section>
     );
 };
 
