@@ -7,8 +7,7 @@ const Testimonial = () => {
             subHeading={'---What Our Clients Say---'}
             heading={'TESTIMONIALS'}
             >
-
-            </SectionTitle>
+        </SectionTitle>
         </section>
     );
 };
