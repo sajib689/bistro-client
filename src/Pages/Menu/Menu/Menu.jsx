@@ -1,9 +1,10 @@
 import { Helmet } from "react-helmet";
 import Cover from "../../Shared/Cover/Cover";
 import img from "../../../assets/menu/banner3.jpg";
-import dessert from '../../../assets/menu/dessert-bg.jpeg';
-import salad from '../../../assets/menu/salad-bg.jpg'
-import pizza from '../../../assets/menu/pizza-bg.jpg'
+import dessert from "../../../assets/menu/dessert-bg.jpeg";
+import salads from "../../../assets/menu/salad-bg.jpg";
+import pizzas from '../../../assets/menu/pizza-bg.jpg';
+import soups from "../../../assets/menu/soup-bg.jpg"
 import useMenu from "../../../hooks/useMenu/useMenu";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import MenuCategory from "../MenuCategory/MenuCategory";
@@ -36,6 +37,21 @@ const Menu = () => {
     {/* desserts menu items section */}
     <MenuCategory items={desserts}  img={dessert}
         title={"DESSERTS"}
+        description={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}
+      ></MenuCategory>
+      {/* pizza menu items section */}
+      <MenuCategory items={pizza}  img={pizzas}
+        title={"PIZZA"}
+        description={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}
+      ></MenuCategory>
+      {/* salad menu items section */}
+      <MenuCategory items={salad}  img={salads}
+        title={"SALADS"}
+        description={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}
+      ></MenuCategory>
+      {/* soups menu items section */}
+      <MenuCategory items={soup}  img={soups}
+        title={"Soup"}
         description={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}
       ></MenuCategory>
     </div>
