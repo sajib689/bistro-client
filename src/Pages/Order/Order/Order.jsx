@@ -5,10 +5,10 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { useState } from "react";
 import useMenu from "./../../../hooks/useMenu/useMenu";
+import FoodCard from "../../../Components/SectionTitle/FoodCard/FoodCard";
 
 const Order = () => {
   const [tabIndex, setTabIndex] = useState(0);
-  const [menu] = useMenu();
   const [menu] = useMenu();
   const desserts = menu.filter((item) => item.category === "dessert");
   const soup = menu.filter((item) => item.category === "soup");
@@ -30,7 +30,7 @@ const Order = () => {
       <Tabs
         defaultIndex={tabIndex}
         onSelect={(index) => setTabIndex(index)}
-        className="tabs tabs-boxed"
+        className="tabs tabs-boxed mt-24"
       >
         <TabList className="uppercase">
           <Tab className="tab">Salad</Tab>
@@ -41,7 +41,11 @@ const Order = () => {
         </TabList>
 
         <TabPanel>
-          <h2>Any content 1</h2>
+         <div className='grid md:grid-cols-3 gap-4 mt-12 mb-24'>
+          {
+            salad.map(items => <FoodCard items={salad} key={items._id}></FoodCard>)
+          }
+         </div>
         </TabPanel>
         <TabPanel>
           <h2>Any content 2</h2>
