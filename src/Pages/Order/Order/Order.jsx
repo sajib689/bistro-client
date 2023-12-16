@@ -43,13 +43,39 @@ const Order = () => {
         <TabPanel>
          <div className='grid md:grid-cols-3 gap-4 mt-12 mb-24'>
           {
-            salad.map(items => <FoodCard items={salad} key={items._id}></FoodCard>)
+            salad.map(items => <FoodCard items={items} key={items._id}></FoodCard>)
           }
          </div>
         </TabPanel>
         <TabPanel>
-          <h2>Any content 2</h2>
+         <div className='grid md:grid-cols-3 gap-4 mt-12 mb-24'>
+          {
+            pizza.map(items => <FoodCard items={items} key={items._id}></FoodCard>)
+          }
+         </div>
         </TabPanel>
+        <TabPanel>
+         <div className='grid md:grid-cols-3 gap-4 mt-12 mb-24'>
+          {
+            soup.map(items => <FoodCard items={items} key={items._id}></FoodCard>)
+          }
+         </div>
+        </TabPanel>
+        <TabPanel>
+         <div className='grid md:grid-cols-3 gap-4 mt-12 mb-24'>
+          {
+            desserts.map(items => <FoodCard items={items} key={items._id}></FoodCard>)
+          }
+         </div>
+        </TabPanel>
+        <TabPanel>
+         <div className='grid md:grid-cols-3 gap-4 mt-12 mb-24'>
+          {
+            offered.map(items => <FoodCard items={items} key={items._id}></FoodCard>)
+          }
+         </div>
+        </TabPanel>
+        
       </Tabs>
     </div>
   );
