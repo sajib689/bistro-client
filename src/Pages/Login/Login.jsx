@@ -1,6 +1,22 @@
+import { useEffect, useRef, useState } from 'react';
 import authenticationImg from '../../assets/others/authentication1.png'
+import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 
 const Login = () => {
+  const captchaRef = useRef(null)
+  const [disbled, setDisabled] = useState(true)
+  const handleCaptcha = () => {
+    const user_valid_captcha = captchaRef.current.value
+    if(validateCaptcha(user_valid_captcha) === true) {
+      setDisabled(false)
+    } else {
+      alert('Captcha not matched')
+      setDisabled(true)
+    }
+  }
+  useEffect(() => {
+    loadCaptchaEnginge(6); 
+  },[])
     const handleLogin = e => {
         e.preventDefault();
         const form = e.target;
@@ -46,8 +62,24 @@ const Login = () => {
                   </a>
                 </label>
               </div>
+              <div className="form-control">
+                <label className="label">
+                <LoadCanvasTemplate />
+                </label>
+                <input
+                ref={captchaRef}
+                  type="text"
+                  name="captcha"
+                  placeholder="captcha"
+                  className="input input-bordered"
+                  required
+                />
+               
+              </div>
+              <button onClick={handleCaptcha} className="btn btn-xs">Valid</button>
+
               <div className="form-control mt-6">
-              <input className="btn btn-primary" type="submit" value='Login'/>
+              <input disabled={disbled} className="btn btn-primary" type="submit" value='Login'/>
               </div>
             </form>
           </div>
