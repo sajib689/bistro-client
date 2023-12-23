@@ -3,6 +3,7 @@ import authenticationImg from '../../assets/others/authentication1.png'
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../Providers/AuthProviders';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Login = () => {
   const captchaRef = useRef(null)
@@ -28,7 +29,16 @@ const Login = () => {
         signIn(email, password)
         .then( result => {
           const user = result.user;
-          console.log(user);
+          if(user) {
+            Swal.fire({
+                position: "top-center",
+                icon: "success",
+                title: "Login success!",
+                showConfirmButton: false,
+                timer: 1500
+              });
+        }
+        form.reset()
         })
     }
   return (
