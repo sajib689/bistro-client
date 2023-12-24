@@ -7,6 +7,10 @@ const Navbar = () => {
   const navigate = useLocation()
   const handleLogOut = () => {
     logOut()
+    .then( () => {})
+    .catch( error => {
+      console.log(error)
+    })
   }
   const nav = (
     <>

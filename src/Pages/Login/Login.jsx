@@ -30,7 +30,8 @@ const Login = () => {
         signIn(email, password)
         .then( result => {
           const user = result.user;
-          if(user) {
+          console.log(user)
+          if(user.email) {
             Swal.fire({
                 position: "top-center",
                 icon: "success",
@@ -39,8 +40,16 @@ const Login = () => {
                 timer: 1500
               });
         }
-        form.reset()
+        
         })
+        .catch(error => {
+          Swal.fire({
+            icon: "error",
+            title: `Oops...${error.message}`,
+            text: "Something went wrong!",
+          });
+        })
+        form.reset()
     }
   return (
     <>

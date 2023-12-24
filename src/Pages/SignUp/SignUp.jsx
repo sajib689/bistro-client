@@ -22,6 +22,13 @@ const SignUp = () => {
           });
     }
     })
+    .catch(error => {
+      Swal.fire({
+        icon: "error",
+        title: `Oops...${error.message}`,
+        text: "Something went wrong!",
+      });
+    })
   };
   return (
     <>
