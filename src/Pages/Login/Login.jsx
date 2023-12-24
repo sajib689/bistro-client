@@ -4,6 +4,7 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-s
 import { AuthContext } from '../../Providers/AuthProviders';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
   const captchaRef = useRef(null)
@@ -43,6 +44,7 @@ const Login = () => {
     }
   return (
     <>
+    <Helmet><title>Bistro Boss | Login</title></Helmet>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col md:flex-row">
           <div className="text-center md:w-1/2 lg:text-left">

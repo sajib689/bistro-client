@@ -3,20 +3,31 @@ import authenticationImg from "../../assets/others/authentication2.png";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
+import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
 const SignUp = () => {
   const {createUser} = useContext(AuthContext)
   const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = data => {
-    createUser(data)
+    createUser(data.email, data.password)
     .then( result => {
       const user = result.user;
-      console.log(user);
+      if(user) {
+        Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: "Sign up success!",
+            showConfirmButton: false,
+            timer: 1500
+          });
+    }
     })
   };
   return (
     <>
+    <Helmet><title>Bistro Boss | Sign Up</title></Helmet>
       <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col md:flex-row">
+        <div className="hero-content flex-col md:flex-row-reverse">
           <div className="text-center md:w-1/2 lg:text-left">
             <img src={authenticationImg} alt="" />
           </div>
