@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 import authenticationImg from "../../assets/others/authentication2.png";
 import { useForm } from "react-hook-form";
 const SignUp = () => {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = data => {
     console.log(data)
   };
@@ -22,39 +23,42 @@ const SignUp = () => {
                   <span className="label-text">Name</span>
                 </label>
                 <input
-                {...register("name")}
+                {...register("name", {required: true})}
                   type="text"
                   name="name"
                   placeholder="name"
                   className="input input-bordered"
-                  required
+               
                 />
+                 {errors.name && <span className="text-red-400">Name is required</span>}
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
                 <input
-                {...register("email")}
+                {...register("email",{required: true})}
                   type="email"
                   name="email"
                   placeholder="email"
                   className="input input-bordered"
-                  required
+                
                 />
+                {errors.email && <span className="text-red-400">Email is required</span>}
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                {...register("password")}
+                {...register("password",{required: true, minLength: 6, maxLength:20})}
                   type="password"
                   name="password"
                   placeholder="password"
                   className="input input-bordered"
-                  required
+                 
                 />
+                {errors.password && <span className="text-red-400">Password is required</span>}
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
                     Forgot password?
@@ -66,7 +70,7 @@ const SignUp = () => {
                 <input
                   className="btn btn-primary"
                   type="submit"
-                  value="Login"
+                  value="Sign Up"
                 />
               </div>
             </form>
