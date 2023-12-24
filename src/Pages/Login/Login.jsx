@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import authenticationImg from '../../assets/others/authentication1.png'
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../Providers/AuthProviders';
@@ -7,15 +7,13 @@ import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
-  const captchaRef = useRef(null)
   const [disbled, setDisabled] = useState(true)
   const {signIn} = useContext(AuthContext)
-  const handleCaptcha = () => {
-    const user_valid_captcha = captchaRef.current.value
+  const handleCaptcha = (e) => {
+    const user_valid_captcha = e.target.value
     if(validateCaptcha(user_valid_captcha) === true) {
       setDisabled(false)
     } else {
-      alert('Captcha not matched')
       setDisabled(true)
     }
   }
@@ -97,7 +95,7 @@ const Login = () => {
                 <LoadCanvasTemplate />
                 </label>
                 <input
-                ref={captchaRef}
+                onChange={handleCaptcha}
                   type="text"
                   name="captcha"
                   placeholder="captcha"
@@ -106,9 +104,7 @@ const Login = () => {
                 />
                
               </div>
-              <button onClick={handleCaptcha} className="btn btn-xs">Valid</button>
-
-              <div className="form-control mt-6">
+             <div className="form-control mt-6">
               <input disabled={disbled} className="btn btn-primary" type="submit" value='Login'/>
               </div>
             </form>
