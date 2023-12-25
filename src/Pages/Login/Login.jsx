@@ -95,7 +95,7 @@ const Login = () => {
                 <LoadCanvasTemplate />
                 </label>
                 <input
-                onChange={handleCaptcha}
+                onBlur={handleCaptcha}
                   type="text"
                   name="captcha"
                   placeholder="captcha"
