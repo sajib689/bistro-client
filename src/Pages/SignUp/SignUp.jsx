@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import authenticationImg from "../../assets/others/authentication2.png";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 const SignUp = () => {
   const {createUser,updateUserProfile} = useContext(AuthContext)
   const { register, handleSubmit,reset, formState: { errors } } = useForm();
+  const navigate = useNavigate()
   const onSubmit = data => {
     createUser(data.email, data.password)
     .then( result => {
@@ -24,6 +25,7 @@ const SignUp = () => {
           showConfirmButton: false,
           timer: 1500
         });
+        navigate('/')
       })
       .catch(error => {
         Swal.fire({
