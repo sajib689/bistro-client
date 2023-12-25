@@ -2,13 +2,16 @@ import { useContext, useEffect, useState } from 'react';
 import authenticationImg from '../../assets/others/authentication1.png'
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../Providers/AuthProviders';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
   const [disbled, setDisabled] = useState(true)
   const {signIn} = useContext(AuthContext)
+  const navigate = useNavigate()
+  const location = useLocation()
+  const from = location.state?.from?.pathname | "/"
   const handleCaptcha = (e) => {
     const user_valid_captcha = e.target.value
     if(validateCaptcha(user_valid_captcha) === true) {
@@ -38,7 +41,7 @@ const Login = () => {
                 timer: 1500
               });
         }
-        
+        navigate(from, {replace: true});
         })
         .catch(error => {
           Swal.fire({
