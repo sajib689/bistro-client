@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
-  const [disbled, setDisabled] = useState(true)
+  const [disabled, setDisabled] = useState(true)
   const {signIn} = useContext(AuthContext)
   const navigate = useNavigate()
   const location = useLocation()
@@ -108,7 +108,7 @@ const Login = () => {
                
               </div>
              <div className="form-control mt-6">
-              <input disabled={disbled} className="btn btn-primary" type="submit" value='Login'/>
+              <input disabled={disabled} className="btn btn-primary" type="submit" value='Login'/>
               </div>
             </form>
             <p className='text-center'><small>New Here? <Link to='/signup'>Create an account</Link></small></p>
