@@ -1,6 +1,43 @@
+import { useContext } from "react";
+import { AuthContext } from "../../../Providers/AuthProviders";
+import Swal from "sweetalert2";
+import { useLocation, useNavigate } from "react-router-dom";
+
 const FoodCard = ({items}) => {
+  const {user} = useContext(AuthContext)
+  const navigate = useNavigate()
+  const location = useLocation()
   const handleAddToCart = items => {
-    console.log(items)
+    if(user) {
+      fetch('http://localhost:5000/carts')
+      .then(res => res.json())
+      .then(data => {
+        if(data.insertedId) {
+          Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: "Added successfully",
+            showConfirmButton: false,
+            timer: 1500
+          });
+        } else{
+          Swal.fire({
+            title: "Are you Login?",
+            text: "Please Login!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Login"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              navigate('/login',{state: {from: location}});
+            }
+          });
+          
+        }
+      })
+    }
   }
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
