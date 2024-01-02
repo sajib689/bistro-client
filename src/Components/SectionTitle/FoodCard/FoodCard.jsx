@@ -8,8 +8,16 @@ const FoodCard = ({items}) => {
   const navigate = useNavigate()
   const location = useLocation()
   const handleAddToCart = items => {
-    if(user) {
-      fetch('http://localhost:5000/carts')
+    const {name, image, price, recipe, _id} = items
+    if(user && user?.email) {
+      const cartItem = {menuItemId: _id, name, image, price,recipe, email: user?.email}
+      fetch('http://localhost:5000/carts',{
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(cartItem)
+      })
       .then(res => res.json())
       .then(data => {
         if(data.insertedId) {
