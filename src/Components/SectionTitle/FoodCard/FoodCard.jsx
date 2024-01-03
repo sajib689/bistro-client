@@ -6,7 +6,7 @@ import useCart from "../../../hooks/useCart/useCart";
 
 const FoodCard = ({items}) => {
   const {user} = useContext(AuthContext)
-  const [refetch] = useCart()
+  const [, refetch] = useCart()
   const navigate = useNavigate()
   const location = useLocation()
   const handleAddToCart = items => {
