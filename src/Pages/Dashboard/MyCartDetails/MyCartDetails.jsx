@@ -1,26 +1,9 @@
-import { Helmet } from "react-helmet-async";
-import useCart from "./../../../hooks/useCart/useCart";
-import SectionTitle from "./../../../Components/SectionTitle/SectionTitle";
+import useCart from "../../../hooks/useCart/useCart";
 
-
-const MyCart = () => {
+const MyCartDetails = () => {
   const [cart] = useCart();
-  const total = cart.reduce((sum, item) => item.price + sum, 0);
-  console.log(total);
   return (
     <div>
-      <Helmet>
-        <title>Bistro Boss | My Cart</title>
-      </Helmet>
-      <SectionTitle
-        heading="WANNA ADD MORE?"
-        subHeading="---My Cart---"
-      ></SectionTitle>
-      <div className="flex justify-evenly font-semibold h-[60px] items-center uppercase">
-        <h3 className="text-2xl">Total Items: {cart.length}</h3>
-        <h3 className="text-2xl">Total Items: ${Math.floor(total)}</h3>
-        <button className="btn bg-[#D99904] text-white">PAY</button>
-      </div>
       <div className="overflow-x-auto rounded-t-lg mt-2">
         <table className="table">
           {/* head */}
@@ -75,4 +58,4 @@ const MyCart = () => {
   );
 };
 
-export default MyCart;
+export default MyCartDetails;

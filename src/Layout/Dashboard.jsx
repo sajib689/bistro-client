@@ -1,11 +1,14 @@
-import {  Outlet } from "react-router-dom";
-
+import {  NavLink, Outlet } from "react-router-dom";
+import { MdMenu, MdEmail } from "react-icons/md";
+import { FaBagShopping } from "react-icons/fa6";
+import {FaShoppingCart, FaWallet, FaCalendar, FaHome,} from 'react-icons/fa'
+import '../Layout/Dashboard/Dashboard.css';
 const Dashboard = () => {
   return (
     <div>
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col items-center justify-center">
+        <div className="drawer-content flex flex-col p-4">
           {/* Page content here */}
           <Outlet></Outlet>
           <label
@@ -15,20 +18,31 @@ const Dashboard = () => {
             Open drawer
           </label>
         </div>
-        <div className="drawer-side">
+        <div className="drawer-side bg-[#D1A054]">
           <label
             htmlFor="my-drawer-2"
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+          <ul className="uppercase text-white menu p-4 w-80 min-h-full">
             {/* Sidebar content here */}
             <li>
-              <a>Sidebar Item 1</a>
+              <NavLink to='/dashboard'><FaHome></FaHome>User Home</NavLink>
             </li>
             <li>
-              <a>Sidebar Item 2</a>
+              <NavLink to=''><FaCalendar></FaCalendar>reservation</NavLink>
             </li>
+            <li>
+              <NavLink><FaWallet></FaWallet>payment history</NavLink>
+            </li>
+            <li>
+              <NavLink to='/dashboard/mycart'><FaShoppingCart></FaShoppingCart>My Cart</NavLink>
+            </li>
+            <div className="divider"></div>
+            <li><NavLink to='/'><FaHome></FaHome>Home</NavLink></li>
+            <li><NavLink to='/menu'><MdMenu></MdMenu>Menu</NavLink></li>
+            <li><NavLink><FaBagShopping></FaBagShopping>Shop</NavLink></li>
+            <li><NavLink><MdEmail></MdEmail>Contact</NavLink></li>
           </ul>
         </div>
       </div>
