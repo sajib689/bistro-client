@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 const SignUp = () => {
   const {createUser,updateUserProfile} = useContext(AuthContext)
   const { register, handleSubmit,reset, formState: { errors } } = useForm();
@@ -140,6 +141,7 @@ const SignUp = () => {
                 Are you have an account? <Link to="/login">Login</Link>
               </small>
             </p>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>
