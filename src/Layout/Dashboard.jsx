@@ -3,7 +3,9 @@ import { MdMenu, MdEmail } from "react-icons/md";
 import { FaBagShopping } from "react-icons/fa6";
 import {FaShoppingCart, FaWallet, FaCalendar, FaHome,} from 'react-icons/fa'
 import '../Layout/Dashboard/Dashboard.css';
+import useCart from "../hooks/useCart/useCart";
 const Dashboard = () => {
+  const [cart] = useCart()
   return (
     <div>
       <div className="drawer lg:drawer-open">
@@ -35,8 +37,8 @@ const Dashboard = () => {
             <li>
               <NavLink><FaWallet></FaWallet>payment history</NavLink>
             </li>
-            <li>
-              <NavLink to='/dashboard/mycart'><FaShoppingCart></FaShoppingCart>My Cart</NavLink>
+            <li className="flex items-start">
+              <NavLink to='/dashboard/mycart'><FaShoppingCart></FaShoppingCart>My Cart <span className="badge badge-secondary">+{cart?.length || 0}</span></NavLink>
             </li>
             <div className="divider"></div>
             <li><NavLink to='/'><FaHome></FaHome>Home</NavLink></li>
