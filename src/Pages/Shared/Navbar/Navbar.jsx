@@ -32,7 +32,7 @@ const Navbar = () => {
         <Link to="/order/salad">OUR SHOP</Link>
       </li>
       <li>
-        <Link to='dashboard/mycart'>
+        <Link to='dashboard'>
           <BsCartFill />
           <div className="badge badge-secondary">+{cart?.length || 0}</div>
         </Link>
